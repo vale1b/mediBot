@@ -9,12 +9,12 @@ async function main() {
   // Print the completion returned by the LLM.
   process.stdout.write(chatCompletion.choices[0]?.message?.content || "");
 }
-async function getGroqChatCompletion() {
+async function getGroqChatCompletion(userMessage) {
   return groq.chat.completions.create({
     messages: [
       {
         role: "user",
-        content: "que opinas de Demichelis?",
+        content: userMessage,
       },
     ],
     model: "llama3-8b-8192",
