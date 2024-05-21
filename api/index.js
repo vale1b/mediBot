@@ -1,12 +1,14 @@
-const express = require("express");
+import express from 'express';
+import { getGroqChatCompletion } from "./controllers/apisGroq.js";
+
 const app = express();
+const port = 3001;
 
-const port = process.env.PORT || 3000; // You can use environment variables for port configuration
-
-const usersRoute = require("./routes/users");
-app.use("/users", usersRoute);
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+app.get("/api/groq", async (req, res) => {
+  const chatCompletion = await getGroqChatCompletion();
+  res.json(chatCompletion);
 });
 
-// Include route files
+app.listen(port, () => {
+  console.log("Server started on port " + port);
+});
