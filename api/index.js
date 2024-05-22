@@ -1,5 +1,6 @@
-import express from 'express';
+import express from "express";
 import { getGroqChatCompletion } from "./controllers/apisGroq.js";
+const { GROQ_API_KEY } = process.env;
 
 const app = express();
 const port = 3001;
@@ -11,6 +12,7 @@ app.get("/api/groq", async (req, res) => {
 
 app.post("/chat", async (req, res) => {
   const { message } = req.query;
+
   if (!message) {
     return res.status(400).send({ error: "Message is required" });
   }

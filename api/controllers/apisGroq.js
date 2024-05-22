@@ -1,8 +1,11 @@
 "use strict";
 import { Groq } from "groq-sdk";
+import dotenv from "dotenv";
+dotenv.config();
+const { GROQ_API_KEY } = process.env;
 
 const groq = new Groq({
-  apiKey: "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",
+  apiKey: GROQ_API_KEY,
 });
 async function main() {
   const chatCompletion = await getGroqChatCompletion();
@@ -21,6 +24,3 @@ async function getGroqChatCompletion(userMessage) {
   });
 }
 export { getGroqChatCompletion };
-
-
-
