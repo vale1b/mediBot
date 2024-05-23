@@ -1,6 +1,6 @@
 "use strict";
-import { Groq } from "groq-sdk";
-import dotenv from "dotenv";
+const { Groq } = require("groq-sdk");
+const dotenv = require("dotenv");
 dotenv.config();
 const { GROQ_API_KEY } = process.env;
 
@@ -23,4 +23,4 @@ async function getGroqChatCompletion(userMessage) {
     model: "llama3-8b-8192",
   });
 }
-export { getGroqChatCompletion };
+module.exports = { getGroqChatCompletion };
