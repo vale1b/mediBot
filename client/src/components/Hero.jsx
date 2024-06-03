@@ -1,25 +1,34 @@
 const Hero = () => {
   return (
-    <div className=" max-w-5xl p-6 md:p-2 my-20 mx-20  ">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center">
-        <div className="flex-1">
-          <img
-            src="../public/heroImage.png"
-            alt="DoctorIMG"
-            className="rounded-2xl w-auto md:w-auto md:max-w-sm "
-          />
-        </div>
-        <div className="flex-1 mt-6 md:mt-0 md:ml-12 text-center md:text-left justify-center  ">
-          <h2 className="text-2xl font-bold text-white">MEDITOBOT SOLUTIONS</h2>
-          <p className="mt-4 text-white">
-            Lorem ipsum praesent ac massa at ligula reet est iaculis. Vivamus
-            est mist aliquet elit ac nisl. Lorem ipsum praesent ac massa at
-            ligula reet est iaculis. Vivamus est mist.
-          </p>
-          <div className="flex w-full justify-center md:justify-start">
-            <button className="bg-white text-black py-1 px-5 flex items-center rounded-full hover:bg-[#0B0064] hover:text-white mt-4 ">
-              pruebalo ahora <span className="ml-2">→</span>
-            </button>
+    <div className="flex flex-wrap">
+      <img
+        src="/public/heroimage.png"
+        alt="doctorsIMG"
+        className="w-full h-19 object-cover sm:h-screen sm:w-4/12"
+      ></img>
+      <div className="w-full sm:w-8/12 mb-10">
+        <div className="container mx-auto h-full sm:p-10">
+          <div className="container px-4 lg:flex mt-10 items-center h-full lg:mt-0">
+            <div className="w-full">
+              <h1 className="text-4xl lg:text-6xl font-bold text-white">
+                Agiliza la atención de las clinicas con
+                <span className="text-blue-300"> IA </span> eficiente.
+              </h1>
+              <div className="w-20 h-1 bg-blue-300 my-4"></div>
+              <p className="text-xl mb-10 text-white">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Recusandae maiores neque eaque ea odit placeat, tenetur illum
+                distinctio nulla voluptatum a corrupti beatae tempora aperiam
+                quia id aliquam possimus aut.
+              </p>
+
+              <button className="bg-[#0B0064] text-white px-7 py-2 rounded-full mr-4">
+                Pruebalo ahora
+              </button>
+              <button className="bg-blue-100 text-[#0B0064] px-7 py-2 rounded-full ">
+                Mediplan+
+              </button>
+            </div>
           </div>
         </div>
       </div>
