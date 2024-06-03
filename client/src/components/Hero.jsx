@@ -1,6 +1,6 @@
 const Hero = () => {
   return (
-    <div className="flex flex-wrap">
+    <div id="inicio" className="flex flex-wrap">
       <img
         src="/public/heroimage.png"
         alt="doctorsIMG"

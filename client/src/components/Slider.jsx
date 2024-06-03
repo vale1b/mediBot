@@ -51,7 +51,7 @@ const CustomSlider = () => {
   };
 
   return (
-    <div className="bg-blue-100 py-10">
+    <div id="quienes" className="bg-blue-100 py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-white rounded-lg p-6 flex flex-col lg:flex-row gap-10">
           <div className="w-full lg:w-1/2">

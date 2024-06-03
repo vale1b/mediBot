@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom"; // Importa Link de react-router-do
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,20 +12,22 @@ const Header = () => {
 
   return (
     <header className="bg-[#0B0064] p-4 flex justify-between items-center">
-      <div className="text-white text-2xl font-bold">MEDIBOT</div>
+      <div className="text-white text-2xl font-bold">
+        <Link to="/">MEDIBOT</Link>
+      </div>
       <nav
         className={`${
           isOpen ? "block" : "hidden"
         } absolute top-16  right-2 w-60  bg-[#0B0064] p-4 md:relative md:flex md:p-0 md:bg-transparent md:w-auto md:top-0 md:left-0`}
       >
         <a
-          href="#"
+          href="#inicio"
           className="block text-white text-lg py-2 hover:text-[#96B7FF] md:py-0 md:px-4"
         >
           Inicio
         </a>
         <a
-          href="#"
+          href="#quienes"
           className="block text-white text-lg py-2 hover:text-[#96B7FF] md:py-0 md:px-4"
         >
           Quienes Somos
