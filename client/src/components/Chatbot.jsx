@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import userImage from './imgs/user.png';  // img de prueba para el usuario
-import botImage from './imgs/bot8.png';    // img de prueba del bot
+import userImage from '../imgs/user.png';  // img de prueba para el usuario
+import botImage from '../imgs/bot8.png';    // img de prueba del bot
 //mx-auto -> no funciona
 //flex justify-center -> tiene que estar aplicado en los dos div para que el input este abajo
 //items-center  -> no, centra el bloque de dialogo al medio de la pantalla

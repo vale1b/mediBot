@@ -4,7 +4,7 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons'
 
 const Mediplan = () => {
   return (
-    <div className=' min-h-[75vh] flex items-center justify-center bg-celeste'>
+    <div id='plan' className=' min-h-[75vh] flex items-center justify-center bg-celeste'>
         <div className='bg-primary w-7/12 max-w-[400px] my-10 rounded-lg flex flex-col py-5 px-10'>     
             <h2 className='py-3 uppercase font-bold text-2xl text-center text-white'>
                   mediplan+

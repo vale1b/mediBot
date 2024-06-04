@@ -33,23 +33,23 @@ const Header = () => {
           Quienes Somos
         </a>
         <a
-          href="#"
+          href="#funcionamiento"
           className="block text-white text-lg py-2 hover:text-[#96B7FF] md:py-0 md:px-4"
         >
           Cómo Funciona
         </a>
         <a
-          href="#"
+          href="#plan"
           className="block text-white text-lg py-2 hover:text-[#96B7FF] md:py-0 md:px-4"
         >
-          Contacto
+          Plan Premium
         </a>
         <button className="bg-white text-black py-2 px-4 flex items-center rounded-full hover:bg-[#3D5A98] hover:text-white mt-4 md:hidden">
-          Iniciar Sesión <span className="ml-2">→</span>
+           <Link to="/login">Iniciar Sesión <span className="ml-2">→</span></Link> 
         </button>
       </nav>
-      <button className="bg-white text-black text-base py-1 px-5  flex items-center rounded-full hover:bg-[#3D5A98] hover:text-white hidden md:flex">
-        Iniciar Sesión <span className="ml-2">→</span>
+      <button className="bg-white text-black text-base py-1 px-5 items-center rounded-full hover:bg-[#3D5A98] hover:text-white hidden md:flex">
+        <Link to={'/login'}>Iniciar Sesión <span className="ml-2">→</span></Link>
       </button>
       <div className="md:hidden">
         <button onClick={toggleMenu} className="text-white text-2xl   ">

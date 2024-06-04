@@ -1,8 +1,10 @@
+import heroImg from '../imgs/heroImage.png'
+
 const Hero = () => {
   return (
     <div id="inicio" className="flex flex-wrap">
       <img
-        src="/public/heroimage.png"
+        src={heroImg}
         alt="doctorsIMG"
         className="w-full h-19 object-cover sm:h-screen sm:w-4/12"
       ></img>
