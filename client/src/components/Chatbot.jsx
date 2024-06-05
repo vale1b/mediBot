@@ -114,4 +114,4 @@ const Chatbot = () => {
   );
 };
 
-export default Chatbot; // Exporta el componente Chatbot como exportación predeterminada
+export default Chatbot;
