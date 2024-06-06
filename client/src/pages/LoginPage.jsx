@@ -1,7 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import axios from 'axios';
 
 const LoginPage = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const data = { email, password };
+
+    axios.post('http://localhost:4000/api/user/login', data)
+    .then(response => {
+      console.log('Inicio de sesion exitoso: ', response.data);
+    })
+    .catch(error => {
+      console.error('Error en el inicio de sesion: ', error);
+    });
+  };
+
   return (
     <div className='min-h-screen bg-primary flex flex-col items-center justify-center'>
         <h2 className='uppercase text-white font-bold text-2xl my-3'>Medibot</h2>
