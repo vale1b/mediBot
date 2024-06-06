@@ -28,7 +28,6 @@ Salud
 * **Ed** - Frontend - https://linkedin.com/in/
 * **Valen** - Fullstack - https://linkedin.com/in/
 * **Jose** - Backend - https://linkedin.com/in/
-* **Franco** - Backend - https://linkedin.com/in/
 * **Marti** - Fullstack - https://linkedin.com/in/martina-berns
 ## :computer: Tecnologías
 * **Frontend:** HTML, CSS, Javascript, React, Vite, Tailwind
