@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios';
+import instance from '../fetch/AxiosFetch';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -11,7 +12,7 @@ const LoginPage = () => {
 
     const data = { email, password };
 
-    axios.post('http://localhost:4000/api/user/login', data)
+    instance.post('/login', data)
     .then(response => {
       console.log('Inicio de sesion exitoso: ', response.data);
     })
