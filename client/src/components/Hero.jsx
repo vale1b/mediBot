@@ -1,5 +1,5 @@
-import heroImg from '../imgs/heroImage.png'
-
+import heroImg from "../imgs/heroImage.png";
+import { Link } from "react-router-dom";
 const Hero = () => {
   return (
     <div id="inicio" className="flex flex-wrap">
@@ -25,10 +25,14 @@ const Hero = () => {
               </p>
 
               <button className="bg-[#0B0064] text-white px-7 py-2 rounded-full mr-4">
-                Pruebalo ahora
+                <Link to="/chat">
+                  Pruebalo ahora <span className="ml-2">→</span>
+                </Link>
               </button>
-              <button className="bg-blue-100 text-[#0B0064] px-7 py-2 rounded-full ">
-                Mediplan+
+              <button className="bg-white text-[#0B0064] px-7 py-2 rounded-full ">
+                <a href="#plan">
+                  Mediplan+ <span className="ml-2">→</span>
+                </a>
               </button>
             </div>
           </div>

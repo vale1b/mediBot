@@ -51,11 +51,11 @@ const CustomSlider = () => {
   };
 
   return (
-    <div id="quienes" className="bg-blue-100 py-10">
+    <div id="quienes" className="bg-blue-100 rounded-md py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-white rounded-lg p-6 flex flex-col lg:flex-row gap-10">
           <div className="w-full lg:w-1/2">
-            <h1 className="text-2xl lg:text-4xl font-bold text-black mb-5 mt-20">
+            <h1 className="text-2xl lg:text-2xl font-bold text-black mb-5 mt-20">
               ¿QUIENES
               <span className="text-[#3D5A98]"> SOMOS?</span>
             </h1>
@@ -71,7 +71,7 @@ const CustomSlider = () => {
             </button>
           </div>
           <div className="w-full lg:w-1/2">
-            <h1 className="text-2xl lg:text-4xl font-bold text-[#3D5A98] mb-5 ml-4">
+            <h1 className="text-2xl lg:text-2xl font-bold text-[#3D5A98] mb-5 ml-4">
               NUESTRO EQUIPO
             </h1>
             <Slider {...settings}>
