@@ -4,11 +4,13 @@ const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const routes = require("./routes/index.js");
 const UserRoutes = require('./routes/UserRoutes.js')
+const cors = require('cors')
 
 require("dotenv").config();
 require("./db.js");
 
 const app = express();
+app.use(cors());
 
 app.name = "API";
 
