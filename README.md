@@ -8,6 +8,13 @@ Medibot es un servicio de chatbot diseñado para asistir a las clínicas en la a
 * **Registro de Usuarios:** El personal de la clínica puede registrarse en nuestra plataforma para acceder al servicio de Medibot.
 * **Chat Gratuito:** Los usuarios registrados pueden chatear con Medibot sin cargo durante el período de prueba.
 * **Consultas Personalizadas:** Medibot pregunta a los usuarios sobre alergias, enfermedades crónicas/agudas y cualquier condición de salud preexistente antes de dar sugerencias, asegurando así respuestas adecuadas a sus condiciones de salud.
+## Objetivos del proyecto
+* Proveer asistencia médica básica (depende de los síntomas del usuario).
+* Facilitar a los usuarios el acceso rápido a información médica básica (posibles causas).
+* Agilizar el tiempo de respuesta del cliente (el bot responderá las FAQ de la manera más rápida posible).
+* Agilizar la comunicación rápida del usuario con el cliente, es decir, el bot puede generar en tiempo real un botón de llamada o mensaje de emergencia según sea la necesidad del cliente.
+* Monetización del producto: se cobra un plan único de manera mensual de $30.
+* Se genera un link que debe poner como iframe en la página del cliente, react router (medibot.app/clinica1).
 ## :sparkles: Funcionalidades de la Versión Final (No Incluidas en esta Demo)
 * **Integración con la Página Principal de la Clínica:** Medibot estará disponible en la página principal de la clínica para responder consultas médicas y administrativas.
 * **Consultas Médicas:** Los pacientes podrán describir sus síntomas a Medibot, quien les sugerirá el profesional adecuado y les proporcionará un enlace de contacto por WhatsApp.
