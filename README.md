@@ -8,6 +8,8 @@ Medibot es un servicio de chatbot diseñado para asistir a las clínicas en la a
 * **Registro de Usuarios:** El personal de la clínica puede registrarse en nuestra plataforma para acceder al servicio de Medibot.
 * **Chat Gratuito:** Los usuarios registrados pueden chatear con Medibot sin cargo durante el período de prueba.
 * **Consultas Personalizadas:** Medibot pregunta a los usuarios sobre alergias, enfermedades crónicas/agudas y cualquier condición de salud preexistente antes de dar sugerencias, asegurando así respuestas adecuadas a sus condiciones de salud.
+* **Sugerencias Médicas:** Medibot ofrece recomendaciones sobre salud y bienestar para resolver asuntos sencillos al instante.
+* **Atención de Emergencias:** En caso de emergencia, Medibot enviará el contacto del profesional que puede atender al paciente de inmediato.
 ## Objetivos del proyecto
 * Proveer asistencia médica básica (depende de los síntomas del usuario).
 * Facilitar a los usuarios el acceso rápido a información médica básica (posibles causas).
@@ -18,8 +20,6 @@ Medibot es un servicio de chatbot diseñado para asistir a las clínicas en la a
 ## :sparkles: Funcionalidades de la Versión Final (No Incluidas en esta Demo)
 * **Integración con la Página Principal de la Clínica:** Medibot estará disponible en la página principal de la clínica para responder consultas médicas y administrativas.
 * **Consultas Médicas:** Los pacientes podrán describir sus síntomas a Medibot, quien les sugerirá el profesional adecuado y les proporcionará un enlace de contacto por WhatsApp.
-* **Sugerencias Médicas:** Medibot ofrecerá recomendaciones sobre salud y bienestar para resolver asuntos sencillos al instante.
-* **Atención de Emergencias:** En caso de emergencia, Medibot enviará el contacto del profesional que puede atender al paciente de inmediato.
 ## :loudspeaker: Futuras Funcionalidades (Versión Posterior)
 * **Alertas para Pacientes Crónicos:** En futuras versiones, Medibot podrá enviar alertas a los pacientes crónicos, incluyendo recordatorios de turnos y medicación.
 ## :medical_symbol: Rubro
