@@ -107,7 +107,7 @@ const Chatbot = () => {
           onClick={handleSendMessage} // Llama a handleSendMessage al hacer clic en el botón
           className="ml-2 bg-[#3D5A98] text-white px-4 py-2 rounded-lg" // Estilos del botón
         >
-          Send {/* Texto del botón */}
+          Enviar {/* Texto del botón */}
         </button>
       </div>
     </div>
