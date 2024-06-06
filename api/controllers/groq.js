@@ -1,3 +1,4 @@
+/* 
 "use strict";
 const { Groq } = require("groq-sdk");
 const dotenv = require("dotenv");
@@ -24,3 +25,4 @@ async function getGroqChatCompletion(userMessage) {
   });
 }
 module.exports = { getGroqChatCompletion };
+ */
