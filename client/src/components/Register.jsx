@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from 'axios';
 
 const Register = () => {
   const [email, setEmail] = useState("");
@@ -9,8 +10,25 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Aquí va la peticion
-    console.log({ email, password, confirmPassword, termsAccepted });
+    
+    if (password !== confirmPassword) {
+      console.error('Las contraseñas no coinciden');
+      return;
+    }
+
+    // Datos del formulario
+    const data = { email, password, termsAccepted };
+
+    // Realizar la peticion POST con Axios
+    axios.post('http://localhost:4000/api/user/register', data)
+      .then(response => {
+        console.log('Registro exitoso:', response.data);
+        // Registro correcto
+      })
+      .catch(error => {
+        console.error('Error en el registro:', error);
+        // Error en el registro de usuario
+      });
   };
 
   return (
