@@ -17,7 +17,7 @@ const Hero = () => {
                 <span className="text-blue-300"> IA </span> eficiente.
               </h1>
               <div className="w-20 h-1 bg-blue-300 my-4"></div>
-              <p className="text-xl mb-10 text-white">
+              <p className="text-xl mb-10 text-white tracking-tight ">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Recusandae maiores neque eaque ea odit placeat, tenetur illum
                 distinctio nulla voluptatum a corrupti beatae tempora aperiam

@@ -1,15 +1,15 @@
 import Hero from "../components/Hero";
 import Slider from "../components/Slider";
-import Mediplan from "../components/Mediplan";
-import Footer from "../components/Footer";
+import Pricing from "../components/Pricing";
+import Stepper from "../components/Stepper";
 
 function Home() {
   return (
     <>
       <Hero />
       <Slider />
-      <Mediplan />
-      <Footer />
+      <Stepper />
+      <Pricing />
     </>
   );
 }

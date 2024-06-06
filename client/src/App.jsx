@@ -6,7 +6,7 @@ import Home from "./pages/Home";
 import Chat from "./pages/Chat";
 import Header from "./components/Header";
 import Chatbot from "./components/Chatbot";
-
+import Footer from "./components/Footer";
 const App = () => {
   return (
     <Router>
@@ -21,6 +21,7 @@ const App = () => {
             <Route path="/chatbot" element={<Chatbot />} />
           </Routes>
         </main>
+        <Footer />
       </div>
     </Router>
   );
