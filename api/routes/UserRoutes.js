@@ -6,18 +6,20 @@ const jwt = require('jsonwebtoken');
 
 // register
 router.post('/register', async (req, res) => {
-    const {username, password} = req.body;
+    const {email, password, termsAccepted} = req.body;
 
-    const salt =  bcrypt.genSaltSync(10);
+     const salt =  bcrypt.genSaltSync(10);
+
+     await User.sync();
 
      try {
-      await User.sync();
       const user = await User.create({
-         username: username,
-         password: bcrypt.hashSync(password, salt)
+         email: email,
+         password: bcrypt.hashSync(password, salt),
+         termsAccepted: termsAccepted
       });
  
-      const token = jwt.sign({ userkey: user.id }, process.env.SECRET_KEY, { expiresIn: '1h' });
+       const token = jwt.sign({ userkey: user.id }, process.env.SECRET_KEY, { expiresIn: '1h' });
  
       res.cookie('token', token, {
        httpOnly: true,
@@ -28,19 +30,18 @@ router.post('/register', async (req, res) => {
    
       res.status(200).json('usuario creado correctamente');
      } catch (error) {
-      res.status(500).send('Internal server error');
+      res.status(400).json({message: 'error al enviar la solicitud'});
      }
-    
 });
 
 // login
 router.post('/login', async(req, res) => {
-    const {username, password } = req.body;
+    const {email, password } = req.body;
 
     try {
       const user = await User.findOne({
         where: {
-          username
+          email
         }
       });
 
@@ -54,7 +55,7 @@ router.post('/login', async(req, res) => {
         return res.status(401).json('Usuario o contraseña invalido');
       }
 
-      const token = jwt.sign({ user: user.id }, process.env.SECRET_KEY, { expiresIn: '1h' });
+      const token = jwt.sign({ userkey: user.id }, process.env.SECRET_KEY, { expiresIn: '1h' });
 
       res.cookie('token', token, {
         httpOnly: true,

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [email, setEmail] = useState("");
@@ -8,6 +9,9 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [termsAccepted, setTermsAccepted] = useState(false);
 
+
+  const navigate = useNavigate();
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     
@@ -16,6 +20,7 @@ const Register = () => {
       return;
     }
 
+
     // Datos del formulario
     const data = { email, password, termsAccepted };
 
@@ -23,7 +28,11 @@ const Register = () => {
     axios.post('http://localhost:4000/api/user/register', data)
       .then(response => {
         console.log('Registro exitoso:', response.data);
-        // Registro correcto
+        if(response.status === 200) {
+          // redirigir al home
+            navigate('/');
+        }
+
       })
       .catch(error => {
         console.error('Error en el registro:', error);

@@ -10,7 +10,7 @@ User.init(
         defaultValue: DataTypes.UUIDV4,
         primaryKey: true
       },
-      username: {
+      email: {
         type: DataTypes.STRING,
         allowNull: false
       },
@@ -18,6 +18,10 @@ User.init(
         type: DataTypes.STRING,
         allowNull: false
       },
+      termsAccepted: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false
+      }
     },
     {
         sequelize,
