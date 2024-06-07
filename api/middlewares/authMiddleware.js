@@ -1,9 +1,21 @@
-// Este middleware tiene la logica necesaria para redirigir a los usuarios no autenticados a la pagina de inicio de sesion.
-// En caso de que el usuario este logeado como usuario normal o administrador se ejecutara la funcion next() para permitir que la solicitud continue a la siguiente ruta o middleware.
-const authMiddleware = (req, res, next) => {
-    if (!req.session.userLogged && !req.session.userAdmin) {
-        return res.redirect(/user/login);
+const jwt = require('jsonwebtoken');
+
+const authenticateUser = (req, res, next) => {
+    const {token} = req.cookies;
+
+    if(!token) {
+        return res.status(401).json({ message: "No estas autorizado para acceder"});
     }
-    next(); 
-};
-module.exports = authMiddleware;
+
+    try {
+        const decoded = jwt.verify(token, process.env.SECRET_KEY);
+        req.user = decoded;
+        res.status(200).json('middleware funcionando');
+    } catch (error) {
+        return res.status(401).json({ message: "El token es invalido"});
+    }
+
+   
+}
+
+module.exports = authenticateUser;

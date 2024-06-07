@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import axios from 'axios';
 import { useNavigate } from "react-router-dom";
+import instance from '../fetch/AxiosFetch'
 
 const Register = () => {
   const [email, setEmail] = useState("");
@@ -25,12 +25,12 @@ const Register = () => {
     const data = { email, password, termsAccepted };
 
     // Realizar la peticion POST con Axios
-    axios.post('http://localhost:4000/api/user/register', data)
+    instance.post('/register', data)
       .then(response => {
         console.log('Registro exitoso:', response.data);
         if(response.status === 200) {
           // redirigir al home
-            navigate('/');
+            navigate('/chatbot');
         }
 
       })

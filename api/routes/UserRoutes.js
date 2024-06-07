@@ -3,6 +3,7 @@ const router = express.Router();
 const User = require('../models/UserModel')
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const authenticateUser = require('../middlewares/authMiddleware');
 
 // register
 router.post('/register', async (req, res) => {
@@ -10,10 +11,13 @@ router.post('/register', async (req, res) => {
 
      const salt =  bcrypt.genSaltSync(10);
 
-     await User.sync();
-
+     if(termsAccepted != true) {
+       return res.status(401).json("Debes aceptar los terminos");
+     }
+  
      try {
-      const user = await User.create({
+        await User.sync({ force: true });
+        const user = await User.create({
          email: email,
          password: bcrypt.hashSync(password, salt),
          termsAccepted: termsAccepted
@@ -26,16 +30,15 @@ router.post('/register', async (req, res) => {
        secure: true, 
        maxAge: 3600000 
      });
- 
    
-      res.status(200).json('usuario creado correctamente');
+      res.status(200).json('usuario guardado correctamente');
      } catch (error) {
       res.status(400).json({message: 'error al enviar la solicitud'});
      }
 });
 
 // login
-router.post('/login', async(req, res) => {
+router.post('/login', authenticateUser, async(req, res) => {
     const {email, password } = req.body;
 
     try {

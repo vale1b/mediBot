@@ -1,15 +1,30 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import instance from "../fetch/AxiosFetch";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
 
+  const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Aquí va la petición de inicio de sesión
-    console.log({ email, password, rememberMe });
+
+    const data = { email, password };
+
+    instance.post('/login', data)
+    .then(response => {
+      console.log('Inicio de sesion exitoso: ', response.status);
+      if(response.status === 200) {
+          navigate('/chatbot');
+      }
+    })
+    .catch(error => {
+      console.error('Error en el inicio de sesion: ', error);
+    });
   };
 
   return (
