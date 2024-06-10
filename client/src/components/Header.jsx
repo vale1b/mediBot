@@ -11,7 +11,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-[#0B0064] p-4 flex justify-between items-center">
+    <header className="bg-[#0B0064] p-4 flex justify-between items-center font-Nunito">
       <div className="text-white text-2xl font-bold">
         <Link to="/">MEDIBOT</Link>
       </div>
@@ -30,7 +30,7 @@ const Header = () => {
           href="#quienes"
           className="block text-white text-lg py-2 hover:text-[#96B7FF] md:py-0 md:px-4"
         >
-          Quienes Somos
+          Quiénes Somos
         </a>
         <a
           href="#funcionamiento"
