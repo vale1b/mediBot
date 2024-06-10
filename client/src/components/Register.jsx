@@ -7,27 +7,34 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [termsAccepted, setTermsAccepted] = useState(false);
+  const [errors, setErrors] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     
     if (password !== confirmPassword) {
-      console.error('Las contraseñas no coinciden');
+      setErrors([{ msg: 'Las contraseñas no coinciden' }]);
       return;
     }
 
     // Datos del formulario
     const data = { email, password, termsAccepted };
 
-    // Realizar la peticion POST con Axios
+    // Realizar la petición POST con Axios
     axios.post('http://localhost:4000/api/user/register', data)
       .then(response => {
         console.log('Registro exitoso:', response.data);
         // Registro correcto
+        // Redirigir al usuario a otra página o realizar alguna acción de éxito
       })
       .catch(error => {
-        console.error('Error en el registro:', error);
-        // Error en el registro de usuario
+        console.error('Error en el registro:', error.response ? error.response.data : error.message);
+        // Manejar los errores de validación del servidor
+        if (error.response && error.response.data.errors) {
+          setErrors(error.response.data.errors);
+        } else {
+          setErrors([{ msg: 'Error en la conexión con el servidor' }]);
+        }
       });
   };
 
@@ -109,6 +116,15 @@ const Register = () => {
             </button>
           </div>
         </form>
+        {errors.length > 0 && (
+          <div className="mt-6">
+            {errors.map((error, index) => (
+              <div key={index} className="text-red-500 text-sm">
+                {error.msg}
+              </div>
+            ))}
+          </div>
+        )}
         <p className="mt-6 text-center text-sm text-gray-600">
           ¿Ya tienes una cuenta?{" "}
           <Link to={'/login'} className="font-medium text-[#3D5A98] ">

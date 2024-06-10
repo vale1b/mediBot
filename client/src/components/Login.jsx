@@ -1,15 +1,34 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from 'axios';
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
+  const [errors, setErrors] = useState([]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Aquí va la petición de inicio de sesión
-    console.log({ email, password, rememberMe });
+    try {
+      const response = await axios.post(' http://localhost:4000/api/user/login', { email, password });
+      console.log('Respuesta del servidor:', response.data);
+
+      if (response.data.valido) {
+        // Redirigir al usuario a otra página o realizar alguna acción de éxito
+        console.log('Login exitoso');
+      } else {
+        // Mostrar los errores de validación
+        setErrors(response.data.errores);
+      }
+    } catch (error) {
+      console.error('Error al validar el login:', error.response ? error.response.data : error.message);
+      if (error.response && error.response.data.errores) {
+        setErrors(error.response.data.errores);
+      } else {
+        setErrors([{ msg: 'Error en la conexión con el servidor' }]);
+      }
+    }
   };
 
   return (
@@ -18,10 +37,7 @@ const Login = () => {
         <h2 className="text-2xl font-bold mb-6 text-center">Iniciar Sesión</h2>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-700"
-            >
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
               Tu email:
             </label>
             <input
@@ -35,10 +51,7 @@ const Login = () => {
             />
           </div>
           <div>
-            <label
-              htmlFor="password"
-              className="block text-sm font-medium text-gray-700"
-            >
+            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
               Contraseña:
             </label>
             <input
@@ -60,10 +73,7 @@ const Login = () => {
                 onChange={(e) => setRememberMe(e.target.checked)}
                 className="h-4 w-4 text-[#3D5A98] focus:ring-[#3D5A98] border-gray-300 rounded"
               />
-              <label
-                htmlFor="rememberMe"
-                className="ml-2 block text-sm text-gray-900"
-              >
+              <label htmlFor="rememberMe" className="ml-2 block text-sm text-gray-900">
                 Recuérdame
               </label>
             </div>
@@ -82,6 +92,15 @@ const Login = () => {
             </button>
           </div>
         </form>
+        {errors.length > 0 && (
+          <div className="mt-6">
+            {errors.map((error, index) => (
+              <div key={index} className="text-red-500 text-sm">
+                {error.msg}
+              </div>
+            ))}
+          </div>
+        )}
         <p className="mt-6 text-center text-sm text-gray-600">
           ¿Aún no tienes cuenta?{" "}
           <Link to={"/register"} className="font-medium text-[#3D5A98]">
