@@ -31,7 +31,7 @@ Salud
 * **Marti** - Fullstack - https://linkedin.com/in/martina-berns
 ## :computer: Tecnologías
 * **Frontend:** HTML, CSS, Javascript, React, Vite, Tailwind
-* **Backend:** Node.js, Express.js 
+* **Backend:** Node.js, Express.js, Axios
 * **IA:** Groq
 * **Base de datos:** PostgreSQL, Sequalize
 * **Herramientas de desarrollo:** Visual Studio Code, Git, GitHub, npm
