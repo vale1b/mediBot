@@ -13,7 +13,11 @@ export default {
         'violeta': '#96B7FF',
         'celeste': '#DBEAFE'
 
-      }
+      },
+      fontFamily: {
+        'Montserrat': ["Montserrat", 'sans-serif'],
+        'Nunito': ["Nunito", 'sans-serif'],
+      },
     },
   },
   plugins: [],
