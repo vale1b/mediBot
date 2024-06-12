@@ -18,15 +18,17 @@ const Hero = () => {
               </h1>
               <div className="w-20 h-1 bg-blue-300 my-4"></div>
               <p className="text-xl mb-10 text-white tracking-tight ">
-              Medibot es un servicio avanzado de chatbot diseñado para mejorar la atención 
-              en las clínicas. Con tecnología de inteligencia artificial, Medibot responde 
-              consultas médicas y administrativas, proporcionando recomendaciones y apoyo 
-              personalizado a los pacientes. Pruebe nuestra versión demo gratuita durante 3 
-              días y experimente cómo Medibot puede transformar la interacción con sus pacientes.
+                Medibot es un servicio avanzado de chatbot diseñado para mejorar
+                la atención en las clínicas. Con tecnología de inteligencia
+                artificial, Medibot responde consultas médicas y
+                administrativas, proporcionando recomendaciones y apoyo
+                personalizado a los pacientes. Pruebe nuestra versión demo
+                gratuita durante 3 días y experimente cómo Medibot puede
+                transformar la interacción con sus pacientes.
               </p>
 
               <button className="bg-[#0B0064] text-white px-7 py-2 rounded-full mr-4">
-                <Link to="/chat">
+                <Link to="/Login">
                   Pruebalo ahora <span className="ml-2">→</span>
                 </Link>
               </button>

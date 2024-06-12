@@ -18,7 +18,9 @@ const Pricing = () => {
         <div className="flex justify-center">
           <div className="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-[#0B0064] rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:text-white">
             <div className="flex justify-center items-baseline my-8">
-              <span className="mr-2 text-5xl font-extrabold text-blue-100">$30</span>
+              <span className="mr-2 text-5xl font-extrabold text-blue-100">
+                $30
+              </span>
               <span className="text-blue-100">/ mes</span>
             </div>
             <ul className="mb-8 space-y-4 text-left text-blue-100">
@@ -59,7 +61,7 @@ const Pricing = () => {
               </li>
             </ul>
             <button className="bg-white text-black px-7 py-2 rounded-full mr-4">
-              <Link to="/chat">
+              <Link to="/Login">
                 Pruébalo ahora <span className="ml-2">→</span>
               </Link>
             </button>

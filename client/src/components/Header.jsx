@@ -1,13 +1,38 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom"; // Importa Link de react-router-do
+import { Link, useNavigate } from "react-router-dom"; // Importa Link y useNavigate de react-router-dom
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const logeado = localStorage.getItem("logeado");
+    setIsLoggedIn(logeado === "true");
+
+    const handleStorageChange = () => {
+      const logeado = localStorage.getItem("logeado");
+      setIsLoggedIn(logeado === "true");
+    };
+
+    window.addEventListener("storage", handleStorageChange);
+
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+    };
+  }, []);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("logeado");
+    setIsLoggedIn(false);
+    navigate("/");
+    window.dispatchEvent(new Event("storage")); // Dispatch storage event
   };
 
   return (
@@ -18,7 +43,7 @@ const Header = () => {
       <nav
         className={`${
           isOpen ? "block" : "hidden"
-        } absolute top-16  right-2 w-60  bg-[#0B0064] p-4 md:relative md:flex md:p-0 md:bg-transparent md:w-auto md:top-0 md:left-0`}
+        } absolute top-16 right-2 w-60 bg-[#0B0064] p-4 md:relative md:flex md:p-0 md:bg-transparent md:w-auto md:top-0 md:left-0`}
       >
         <a
           href="#inicio"
@@ -44,15 +69,37 @@ const Header = () => {
         >
           Plan Premium
         </a>
-        <button className="bg-white text-black py-2 px-4 flex items-center rounded-full hover:bg-[#3D5A98] hover:text-white mt-4 md:hidden">
-           <Link to="/login">Iniciar Sesión <span className="ml-2">→</span></Link> 
-        </button>
+        {isLoggedIn ? (
+          <button
+            onClick={handleLogout}
+            className="bg-white text-black py-2 px-4 flex items-center rounded-full hover:bg-[#3D5A98] hover:text-white mt-4 md:hidden"
+          >
+            Cerrar Sesión <span className="ml-2">→</span>
+          </button>
+        ) : (
+          <button className="bg-white text-black py-2 px-4 flex items-center rounded-full hover:bg-[#3D5A98] hover:text-white mt-4 md:hidden">
+            <Link to="/login">
+              Iniciar Sesión <span className="ml-2">→</span>
+            </Link>
+          </button>
+        )}
       </nav>
-      <button className="bg-white text-black text-base py-1 px-5 items-center rounded-full hover:bg-[#3D5A98] hover:text-white hidden md:flex">
-        <Link to={'/login'}>Iniciar Sesión <span className="ml-2">→</span></Link>
-      </button>
+      {isLoggedIn ? (
+        <button
+          onClick={handleLogout}
+          className="bg-white text-black text-base py-1 px-5 items-center rounded-full hover:bg-[#3D5A98] hover:text-white hidden md:flex"
+        >
+          Cerrar Sesión <span className="ml-2">→</span>
+        </button>
+      ) : (
+        <button className="bg-white text-black text-base py-1 px-5 items-center rounded-full hover:bg-[#3D5A98] hover:text-white hidden md:flex">
+          <Link to="/login">
+            Iniciar Sesión <span className="ml-2">→</span>
+          </Link>
+        </button>
+      )}
       <div className="md:hidden">
-        <button onClick={toggleMenu} className="text-white text-2xl   ">
+        <button onClick={toggleMenu} className="text-white text-2xl">
           <FontAwesomeIcon icon={isOpen ? faTimes : faBars} />
         </button>
       </div>

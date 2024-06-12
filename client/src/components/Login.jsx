@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import instance from "../fetch/AxiosFetch";
-import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -15,16 +14,19 @@ const Login = () => {
 
     const data = { email, password };
 
-    instance.post('/login', data)
-    .then(response => {
-      console.log('Inicio de sesion exitoso: ', response.status);
-      if(response.status === 200) {
-          navigate('/chatbot');
-      }
-    })
-    .catch(error => {
-      console.error('Error en el inicio de sesion: ', error);
-    });
+    instance
+      .post("/login", data)
+      .then((response) => {
+        console.log("Inicio de sesión exitoso: ", response.status);
+        if (response.status === 200) {
+          localStorage.setItem("logeado", "true");
+          navigate("/chatbot");
+          window.dispatchEvent(new Event("storage")); // Dispatch storage event
+        }
+      })
+      .catch((error) => {
+        console.error("Error en el inicio de sesión: ", error);
+      });
   };
 
   return (
