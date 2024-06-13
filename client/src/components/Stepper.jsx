@@ -1,17 +1,31 @@
 import { Link } from "react-router-dom";
 const Steps = [
-  { id: 1, title: "Regístrate Fácilmente", description: "Accede a nuestra plataforma y completa un sencillo registro para comenzar a usar Medibot." },
-  { id: 2, title: "Chatea con Medibot", description: "Interactúa con nuestro chatbot, que te ofrecerá respuestas personalizadas y seguras." },
+  {
+    id: 1,
+    title: "Regístrate Fácilmente",
+    description:
+      "Accede a nuestra plataforma y completa un sencillo registro para comenzar a usar Medibot.",
+  },
+  {
+    id: 2,
+    title: "Chatea con Medibot",
+    description:
+      "Interactúa con nuestro chatbot, que te ofrecerá respuestas personalizadas y seguras.",
+  },
   {
     id: 3,
     title: "Prueba Gratuita de 3 Días",
-    description: "Disfruta de todas las funcionalidades de Medibot sin costo durante 3 días y evalúa cómo puede mejorar la atención en tu clínica.",
+    description:
+      "Disfruta de todas las funcionalidades de Medibot sin costo durante 3 días y evalúa cómo puede mejorar la atención en tu clínica.",
   },
 ];
 
 const Stepper = () => {
   return (
-    <div id="funcionamiento" className="bg-white  py-12 my-10 rounded-md font-Nunito">
+    <div
+      id="funcionamiento"
+      className="bg-white  py-12 my-10 rounded-md font-Nunito"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h1 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 ">
@@ -41,7 +55,7 @@ const Stepper = () => {
         </div>
         <div className="flex justify-center my-10">
           <button className="bg-[#0B0064] text-white px-7 py-2 rounded-full mr-4">
-            <Link to="/chat">
+            <Link to="/Login">
               Pruébalo ahora <span className="ml-2">→</span>
             </Link>
           </button>
