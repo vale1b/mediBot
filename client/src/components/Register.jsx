@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import instance from '../fetch/AxiosFetch'
 
 const Register = () => {
   const [email, setEmail] = useState("");
@@ -6,14 +9,39 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [termsAccepted, setTermsAccepted] = useState(false);
 
+
+  const navigate = useNavigate();
+  
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Aquí va la peticion
-    console.log({ email, password, confirmPassword, termsAccepted });
+    
+    if (password !== confirmPassword) {
+      console.error('Las contraseñas no coinciden');
+      return;
+    }
+
+
+    // Datos del formulario
+    const data = { email, password, termsAccepted };
+
+    // Realizar la peticion POST con Axios
+    instance.post('/register', data)
+      .then(response => {
+        console.log('Registro exitoso:', response.data);
+        if(response.status === 200) {
+          // redirigir al home
+            navigate('/chatbot');
+        }
+
+      })
+      .catch(error => {
+        console.error('Error en el registro:', error);
+        // Error en el registro de usuario
+      });
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
+    <div className="min-h-screen flex items-center justify-center font-Nunito">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
         <h2 className="text-2xl font-bold mb-6 text-center">Registrarse</h2>
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -92,9 +120,9 @@ const Register = () => {
         </form>
         <p className="mt-6 text-center text-sm text-gray-600">
           ¿Ya tienes una cuenta?{" "}
-          <a href="#" className="font-medium text-[#3D5A98] ">
+          <Link to={'/login'} className="font-medium text-[#3D5A98] ">
             Inicia sesión aquí
-          </a>
+          </Link>
         </p>
       </div>
     </div>

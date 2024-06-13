@@ -5,7 +5,20 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'container': '#C7D8d9',
+        'primary': '#3D5A98',
+        'secondary': '#0b0064',
+        'violeta': '#96B7FF',
+        'celeste': '#DBEAFE'
+
+      },
+      fontFamily: {
+        'Montserrat': ["Montserrat", 'sans-serif'],
+        'Nunito': ["Nunito", 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 }

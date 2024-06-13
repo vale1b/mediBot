@@ -1,6 +1,30 @@
-require("dotenv").config();
 const { Sequelize } = require("sequelize");
-const fs = require("fs");
+
+const sequelize = new Sequelize('medibot', 'root', 'rootroot', {
+  host: 'localhost',
+  dialect: 'mysql',
+  port: 3306
+});
+
+
+const connectTrue = async () => {
+  try {
+    await sequelize.authenticate();
+    console.log('base conectada.');
+  } catch (error) {
+    console.error('Error al conectar a la base de datos:', error);
+  }
+}
+
+connectTrue();
+
+module.exports = {
+  sequelize
+};
+
+
+
+/* const fs = require("fs");
 const path = require("path");
 const { DB_USER, DB_PASSWORD, DB_HOST } = process.env;
 
@@ -46,3 +70,4 @@ module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
   conn: sequelize, // para importart la conexión { conn } = require('./db.js');
 };
+ */

@@ -3,11 +3,12 @@ const { getGroqChatCompletion } = require("../controllers/groq");
 const { Chat } = require("../db");
 const router = Router();
 
-router.get("/", async (req, res) => {
+/* router.get("/", async (req, res) => {
   const chatCompletion = await getGroqChatCompletion();
   console.log(chatCompletion);
-});
-router.post("/", async (req, res) => {
+}); */
+
+/* router.post("/", async (req, res) => {
   const { message } = req.body;
 
   if (!message) {
@@ -17,6 +18,6 @@ router.post("/", async (req, res) => {
 
   res.send({ message: "Chat created successfully" });
   console.log(chat);
-});
+}); */
 
 module.exports = router;
